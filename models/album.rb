@@ -3,6 +3,7 @@ require_relative('../db/sql_runner')
 
 class Album
   
+  attr_accessor :title, :genre, :artist_id
   attr_reader :id
 
   def initialize(origin)
@@ -23,6 +24,16 @@ class Album
     sql = "SELECT * FROM albums;"
     albums = SqlRunner.run(sql)
     albums.map {|album| Album.new(album)}
+  end
+
+  def edit_album
+    sql = "UPDATE albums SET (title, genre, artist_id)
+       VALUES ('#{@title}', '#{@genre}', #{@artist_id})"
+  end
+
+  def self.delete_all
+    sql = "DELETE FROM albums"
+    SqlRunner.run(sql)
   end
 
 
