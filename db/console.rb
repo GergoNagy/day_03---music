@@ -6,6 +6,8 @@ artist1 = Artist.new({'name' =>'Greg'})
 
 artist1.save
 
+Artist.list_all
+
 
 binding.pry
 nil

@@ -13,5 +13,13 @@ def save
   @id = SqlRunner.run(sql)[0]['id'].to_i
 end
 
+def self.list_all
+  sql = "SELECT * FROM artists;"
+  artists = SqlRunner.run(sql)
+  artists.map {|artist| Artist.new(artist)}
+end
+
+
+
 
 end
