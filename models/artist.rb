@@ -1,7 +1,11 @@
 require('pry')
 require_relative('../db/sql_runner')
 
+
+
 class Artist
+
+  attr_reader :id
 
 def initialize(origin)
   @id = origin['id'] if origin['id']
