@@ -21,6 +21,12 @@ def self.list_all
   artists.map {|artist| Artist.new(artist)}
 end
 
+  def albums_from_artist
+    sql = "SELECT * FROM albums WHERE artist_id = #{id}"
+    albums = SqlRunner.run(sql)
+    albums.map {|album| Album.new(album)}
+  end
+
 
 
 
