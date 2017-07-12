@@ -32,6 +32,11 @@ end
     SqlRunner.run(sql)
   end
 
+  def delete_artist
+    sql = "DELETE FROM artists WHERE id = #{@id}"
+    SqlRunner.run(sql)
+  end
+
 
 
 
