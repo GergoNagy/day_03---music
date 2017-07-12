@@ -1,7 +1,5 @@
-require('pry-byebug')
+require('pry')
 require_relative('../db/sql_runner')
-
-
 
 class Album
   
@@ -24,7 +22,7 @@ class Album
   def self.list_all
     sql = "SELECT * FROM albums;"
     albums = SqlRunner.run(sql)
-    albums.map {|album| Artist.new(album)}
+    albums.map {|album| Album.new(album)}
   end
 
 
